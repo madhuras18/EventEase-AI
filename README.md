@@ -125,8 +125,9 @@ python -m http.server 8000
 Then navigate to: [`http://localhost:8000`](http://localhost:8000)
 
 ---
-
 ## 🔒 Security & Privacy
 
-- **Zero Hardcoded Secrets:** No API keys, credentials, or sensitive secrets exist in the codebase.
-- **Client-Side Safe Storage:** If a user connects their Google Gemini API key, it is stored exclusively in the browser's private `localStorage` and never transmitted to external servers.
+- **No Hardcoded Secrets:** API keys and credentials should not be committed to the public repository.
+- **API Key Handling:** If users configure a Google Gemini API key, it may be stored in browser `localStorage`. Anyone with access to the browser profile may be able to access it. Requests to the Gemini API transmit the key to Google's service.
+- **Privacy:** Avoid entering sensitive personal information into the application. API usage is subject to Google's applicable terms and privacy policies.
+- **Future Improvement:** For production deployment, use a secure backend to manage API credentials and protect sensitive information.
