@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventEase AI — Smart Celebration Planner</title>
+  <meta name="description" content="Intelligent Indian celebration planner for birthdays, weddings, college fests, and community events with smart ₹ budget optimizer, guest RSVP management, and emergency assistant.">
+  
+  <!-- Google Fonts: Cormorant Garamond, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Application Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       LANDING PAGE (Welcome & Celebration Discovery)
+       ==================================================================== -->
+  <div id="landingPage" class="landing-page-container">
+
+    <!-- Sticky Navigation Header -->
+    <header class="landing-header">
+      <div class="landing-header-inner">
+        <a href="#landingHero" class="landing-brand-link" id="landingBrandLogo">
+          <div class="brand-logo-badge" aria-hidden="true">✨</div>
+          <div class="brand-name-group">
+            <span class="brand-title">EventEase AI</span>
+            <span class="brand-subtitle">Smart Celebration Planner</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="landing-nav" id="landingNavMenu">
+          <a href="#landingHero" class="landing-nav-link active">Home</a>
+          <a href="#landingCategories" class="landing-nav-link">Explore Events</a>
+          <a href="#landingFeatures" class="landing-nav-link">Features</a>
+          <a href="#landingHowItWorks" class="landing-nav-link">How It Works</a>
+        </nav>
+
+        <!-- Right Header Action Group -->
+        <div class="landing-header-actions">
+          <button class="btn btn-secondary btn-sm" id="btnLandingOpenDashboard" title="Open existing active celebration dashboard">
+            <span>📊 Open Dashboard</span>
+          </button>
+          <button class="btn btn-primary btn-sm" id="btnLandingStartPlanning">
+            <span>✨ Start Planning</span>
+          </button>
+          <button class="landing-mobile-toggle" id="landingMobileToggle" aria-label="Toggle navigation menu">☰</button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="landing-mobile-menu" id="landingMobileMenu">
+        <a href="#landingHero" class="mobile-nav-link">Home</a>
+        <a href="#landingCategories" class="mobile-nav-link">Explore Events</a>
+        <a href="#landingFeatures" class="mobile-nav-link">Features</a>
+        <a href="#landingHowItWorks" class="mobile-nav-link">How It Works</a>
+        <div class="mobile-menu-actions">
+          <button class="btn btn-secondary btn-sm" id="btnMobileLandingOpenDashboard" style="width:100%; justify-content:center;">📊 Open Dashboard</button>
+          <button class="btn btn-primary btn-sm" id="btnMobileLandingStartPlanning" style="width:100%; justify-content:center;">✨ Start Planning</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="landing-hero-section" id="landingHero">
+      <div class="landing-hero-inner">
+        <div class="landing-hero-content">
+          <div class="landing-hero-pill">
+            <span>✨</span>
+            <span>Intelligent Indian Celebration Platform</span>
+          </div>
+          <h1 class="landing-hero-title">
+            Every Celebration, Beautifully Planned.
+          </h1>
+          <p class="landing-hero-subtitle">
+            From unforgettable birthdays to elegant weddings and exciting college events, let AI help you plan your perfect celebration with confidence.
+          </p>
+
+          <div class="landing-hero-actions">
+            <button class="btn btn-primary" id="btnHeroStartPlanning" style="padding:0.75rem 1.6rem; font-size:0.95rem;">
+              <span>✨ Start Planning</span>
+            </button>
+            <a href="#landingCategories" class="btn btn-secondary" style="padding:0.75rem 1.4rem; font-size:0.95rem;">
+              <span>Explore Events ↓</span>
+            </a>
+          </div>
+
+          <!-- Active Event Indicator Callout -->
+          <div class="landing-active-callout" id="landingActiveEventCallout">
+            <div class="active-callout-icon">💡</div>
+            <div class="active-callout-text">
+              <span>Currently planning: <strong id="landingActiveEventName">Aarav's 1st Birthday</strong> (<span id="landingActiveEventBudget">₹10,000</span>)</span>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="btnLandingResumeEvent" style="padding:0.25rem 0.6rem; font-size:0.75rem; color:var(--dusty-rose); font-weight:700;">
+              Resume →
+            </button>
+          </div>
+
+          <!-- Trust Badges Strip -->
+          <div class="landing-trust-strip">
+            <div class="trust-item">
+              <span class="trust-icon">🇮🇳</span>
+              <span>100% Indian Rupee (₹) Estimates</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">🗣️</span>
+              <span>English, Hindi & Marathi</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-icon">💬</span>
+              <span>Instant WhatsApp Sharing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="landing-hero-media">
+          <div class="hero-image-frame">
+            <img 
+              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80" 
+              alt="Bright elegant celebration venue with soft ivory floral arrangements, warm ambient lighting, and refined tableware" 
+              class="hero-img landing-image"
+              id="landingHeroImg"
+              loading="lazy"
+              data-cat-icon="✨"
+              data-cat-title="Refined Celebration Setup"
+            />
+            <div class="hero-image-badge">
+              <span class="badge-dot"></span>
+              <span>AI Celebration Engine • Real-time ₹ Budgeting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Categories with Pictures Section -->
+    <section class="landing-categories-section" id="landingCategories">
+      <div class="landing-section-header">
+        <span class="landing-section-tag">Curated Celebrations</span>
+        <h2 class="landing-section-title">Explore Events</h2>
+        <p class="landing-section-subtitle">
+          Select an event category to launch a tailored planning experience with domain-specific Indian themes, catering calculators, and timelines.
+        </p>
+      </div>
+
+      <div class="landing-categories-grid">
+        <!-- Card 1: Weddings & Engagements -->
+        <div class="landing-category-card">
+          <div class="category-card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" 
+              alt="Tasteful Indian wedding and engagement stage with elegant floral arrangements and warm ambient lighting" 
+              class="category-img landing-image"
+              loading="lazy"
+              data-cat-icon="💍"
+              data-cat-title="Weddings & Engagements"
+            />
+            <span class="category-tag-pill">Weddings & Sangeet</span>
+          </div>
+          <div class="category-card-body">
+            <h3 class="category-card-title">Weddings & Engagements</h3>
+            <p class="category-card-desc">
+              Plan majestic Sangeets, intimate Rokas, and grand wedding receptions with curated decor themes, Indian catering calculators, and custom invitations.
+            </p>
+            <button class="btn btn-primary btn-sm btn-plan-category" data-category="wedding" style="width:100%; justify-content:center;">
+              <span>Plan This Event →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: Birthdays & Anniversaries -->
+        <div class="landing-category-card">
+          <div class="category-card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" 
+              alt="Warm candlelit birthday celebration table with festive lights" 
+              class="category-img landing-image"
+              loading="lazy"
+              data-cat-icon="🎂"
+              data-cat-title="Birthdays & Anniversaries"
+            />
+            <span class="category-tag-pill">Milestones</span>
+          </div>
+          <div class="category-card-body">
+            <h3 class="category-card-title">Birthdays & Anniversaries</h3>
+            <p class="category-card-desc">
+              Create memorable 1st birthdays, milestone jubilees, and anniversary celebrations with smart ₹ budget distribution and personalized themes.
+            </p>
+            <button class="btn btn-primary btn-sm btn-plan-category" data-category="birthday" style="width:100%; justify-content:center;">
+              <span>Plan This Event →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3: College Events & Farewells -->
+        <div class="landing-category-card">
+          <div class="category-card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80" 
+              alt="Campus cultural festival stage and auditorium atmosphere" 
+              class="category-img landing-image"
+              loading="lazy"
+              data-cat-icon="🎓"
+              data-cat-title="College Events & Farewells"
+            />
+            <span class="category-tag-pill">Campus & Youth</span>
+          </div>
+          <div class="category-card-body">
+            <h3 class="category-card-title">College Events & Farewells</h3>
+            <p class="category-card-desc">
+              Organize campus hackathons, annual cultural festivals, and emotional farewell parties with multi-member task lists and high-energy playlists.
+            </p>
+            <button class="btn btn-primary btn-sm btn-plan-category" data-category="college" style="width:100%; justify-content:center;">
+              <span>Plan This Event →</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4: Corporate Events -->
+        <div class="landing-category-card">
+          <div class="category-card-media">
+            <img 
+              src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" 
+              alt="Sophisticated corporate banquet and conference gala setup" 
+              class="category-img landing-image"
+              loading="lazy"
+              data-cat-icon="💼"
+              data-cat-title="Corporate Events & Galas"
+            />
+            <span class="category-tag-pill">Professional Galas</span>
+          </div>
+          <div class="category-card-body">
+            <h3 class="category-card-title">Corporate Events</h3>
+            <p class="category-card-desc">
+              Coordinate polished corporate banquets, networking dinners, and annual award galas with precision timelines, vendor rosters, and RSVP tracking.
+            </p>
+            <button class="btn btn-primary btn-sm btn-plan-category" data-category="corporate" style="width:100%; justify-content:center;">
+              <span>Plan This Event →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose EventEase AI? Section -->
+    <section class="landing-features-section" id="landingFeatures">
+      <div class="landing-section-header">
+        <span class="landing-section-tag">Intelligent Features</span>
+        <h2 class="landing-section-title">Why Choose EventEase AI?</h2>
+        <p class="landing-section-subtitle">
+          Engineered specifically for Indian celebrations with domain accuracy, realistic ₹ budgets, and practical day-of execution tools.
+        </p>
+      </div>
+
+      <div class="landing-features-grid">
+        <!-- Feature 1 -->
+        <div class="landing-feature-card">
+          <div class="feature-card-icon">🎨</div>
+          <h3 class="feature-card-title">AI Theme Studio & Inspiration</h3>
+          <p class="feature-card-desc">
+            Discover curated Indian themes with color swatches, backdrop ideas, floral concepts, visual mood boards, and affordable DIY alternatives.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="landing-feature-card">
+          <div class="feature-card-icon">💰</div>
+          <h3 class="feature-card-title">Smart Budget Planning in ₹</h3>
+          <p class="feature-card-desc">
+            Allocate across 10 categories with auto-balance ratios. Use the AI Budget-Saving Assistant to reduce costs without compromising aesthetics.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="landing-feature-card">
+          <div class="feature-card-icon">💌</div>
+          <h3 class="feature-card-title">Multilingual AI Invitations</h3>
+          <p class="feature-card-desc">
+            Generate custom invitation drafts in English, Hindi (हिंदी), and Marathi (मराठी) across 5 tones with one-click direct WhatsApp sharing.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="landing-feature-card">
+          <div class="feature-card-icon">👥</div>
+          <h3 class="feature-card-title">Smart RSVP & Guest Management</h3>
+          <p class="feature-card-desc">
+            Track confirmed, pending, and declined RSVPs with dietary preferences. Catering budgets automatically recalibrate by confirmed headcount.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="landing-feature-card">
+          <div class="feature-card-icon">⏱️</div>
+          <h3 class="feature-card-title">Event Timelines & Checklists</h3>
+          <p class="feature-card-desc">
+            Stay on track with structured milestone preparation tasks, vendor procurement logs, and an hour-by-hour event-day Run of Show.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="landing-feature-card">
+          <div class="feature-card-icon">🚨</div>
+          <h3 class="feature-card-title">Event-Day Emergency Assistant</h3>
+          <p class="feature-card-desc">
+            Handle unexpected crises like late vendors, cake damage, or guest surges with step-by-step action playbooks and host scripts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="landing-how-section" id="landingHowItWorks">
+      <div class="landing-section-header">
+        <span class="landing-section-tag">Simple 3-Step Process</span>
+        <h2 class="landing-section-title">How It Works</h2>
+        <p class="landing-section-subtitle">
+          Go from initial concept to a fully realized celebration plan in minutes.
+        </p>
+      </div>
+
+      <div class="landing-steps-grid">
+        <div class="landing-step-card">
+          <div class="step-card-num">01</div>
+          <h3 class="step-card-title">Tell Us About Your Event</h3>
+          <p class="step-card-desc">
+            Share your occasion type, celebration date, total budget in Indian Rupees (₹), guest count, venue style, and food preferences.
+          </p>
+        </div>
+
+        <div class="landing-step-card">
+          <div class="step-card-num">02</div>
+          <h3 class="step-card-title">Get Personalised Recommendations</h3>
+          <p class="step-card-desc">
+            Instantly receive 3 curated Indian themes, balanced budget distributions, visual mood board styling, and catering suggestions.
+          </p>
+        </div>
+
+        <div class="landing-step-card">
+          <div class="step-card-num">03</div>
+          <h3 class="step-card-title">Organise, Invite & Celebrate</h3>
+          <p class="step-card-desc">
+            Manage your guest roster, dispatch multilingual WhatsApp invitations, optimize your expenses, and execute with peace of mind.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="landing-cta-section">
+      <div class="landing-cta-card">
+        <div class="cta-sparkle">✨</div>
+        <h2 class="cta-title">Ready to Plan an Unforgettable Celebration?</h2>
+        <p class="cta-subtitle">
+          Join thousands of hosts using intelligent AI planning for birthdays, weddings, college fests, and community gatherings.
+        </p>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
+          <button class="btn btn-primary" id="btnCtaStartPlanning" style="padding:0.75rem 1.75rem; font-size:0.95rem;">
+            <span>✨ Start Planning Your Event</span>
+          </button>
+          <button class="btn btn-secondary" id="btnCtaOpenDashboard" style="padding:0.75rem 1.4rem; font-size:0.95rem;">
+            <span>📊 Open Dashboard</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="landing-footer-inner">
+        <div class="footer-brand">
+          <div class="brand-wrapper">
+            <div class="brand-logo-badge">✨</div>
+            <div class="brand-name-group">
+              <span class="brand-title">EventEase AI</span>
+              <span class="brand-subtitle">Smart Celebration Planner • India</span>
+            </div>
+          </div>
+          <p style="font-size:0.82rem; color:var(--warm-taupe); margin-top:0.75rem; max-width:320px; line-height:1.5;">
+            An intelligent, user-friendly event planning platform tailored for Indian celebrations. Built for PromptWars Hackathon.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-col-title">Navigation</h4>
+          <a href="#landingHero" class="footer-link">Home</a>
+          <a href="#landingCategories" class="footer-link">Explore Events</a>
+          <a href="#landingFeatures" class="footer-link">Key Features</a>
+          <a href="#landingHowItWorks" class="footer-link">How It Works</a>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-col-title">Event Planning</h4>
+          <a href="javascript:void(0)" class="footer-link footer-plan-link" data-category="wedding">Weddings & Sangeet</a>
+          <a href="javascript:void(0)" class="footer-link footer-plan-link" data-category="birthday">Birthdays & Anniversaries</a>
+          <a href="javascript:void(0)" class="footer-link footer-plan-link" data-category="college">College Fests</a>
+          <a href="javascript:void(0)" class="footer-link footer-plan-link" data-category="corporate">Corporate Galas</a>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-col-title">Privacy & Security</h4>
+          <p style="font-size:0.8rem; color:var(--warm-taupe); line-height:1.45; max-width:240px;">
+            🔒 <strong>100% Client-Side Private:</strong> All celebration data is stored in your private local browser storage. No data is sold or shared.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 EventEase AI — PromptWars Virtual Hackathon Edition. All rights reserved.</span>
+        <span>Built with Warm Ivory & Soft Neutrals Luxury Design System.</span>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <!-- ====================================================================
+       APP SHELL (Existing Event-Planning Dashboard)
+       ==================================================================== -->
+  <div class="app-shell" id="appShell" style="display:none;">
+
+    <!-- ====================================================================
+         Light Sidebar & Minimal Refined Navigation
+         ==================================================================== -->
+    <aside class="app-sidebar" id="appSidebar" role="navigation" aria-label="Main Navigation">
+      <div class="sidebar-header">
+        <div class="brand-wrapper">
+          <div class="brand-logo-badge" aria-hidden="true">✨</div>
+          <div class="brand-name-group">
+            <span class="brand-title">EventEase AI</span>
+            <span class="brand-subtitle">Smart Planner • India</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Event Compact Info Pill -->
+      <div class="active-event-pill">
+        <div class="event-pill-label">Active Celebration</div>
+        <div class="event-pill-title" id="sideEventName">Aarav's 1st Birthday</div>
+        <div class="event-pill-meta">
+          <span id="sideEventBudget">₹10,000</span> • <span id="sideEventGuests">50 Guests</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Navigation</div>
+
+        <!-- Working Home / Landing Page Return Link -->
+        <button class="nav-link nav-home-link" id="btnSidebarReturnHome">
+          <div class="nav-link-left">
+            <span class="nav-icon">🏠</span>
+            <span>Landing Page</span>
+          </div>
+          <span class="nav-badge">Exit</span>
+        </button>
+
+        <div class="nav-section-label" style="margin-top:0.4rem;">Planning Modules</div>
+
+        <button class="nav-link active" data-view="dashboard">
+          <div class="nav-link-left">
+            <span class="nav-icon">📊</span>
+            <span>Dashboard</span>
+          </div>
+        </button>
+
+        <button class="nav-link" data-view="my-events">
+          <div class="nav-link-left">
+            <span class="nav-icon">📅</span>
+            <span>My Events</span>
+          </div>
+          <span class="nav-badge" id="sideBadgeEvents">4</span>
+        </button>
+
+        <button class="nav-link" data-view="theme-studio">
+          <div class="nav-link-left">
+            <span class="nav-icon">🎨</span>
+            <span>AI Theme Studio</span>
+          </div>
+          <span class="nav-badge" style="background:var(--dusty-rose); color:#FFFFFF;">Smart</span>
+        </button>
+
+        <button class="nav-link" data-view="budget">
+          <div class="nav-link-left">
+            <span class="nav-icon">💰</span>
+            <span>Budget Planner</span>
+          </div>
+        </button>
+
+        <button class="nav-link" data-view="food">
+          <div class="nav-link-left">
+            <span class="nav-icon">🍽️</span>
+            <span>Food & Catering</span>
+          </div>
+        </button>
+
+        <button class="nav-link" data-view="timeline">
+          <div class="nav-link-left">
+            <span class="nav-icon">⏱️</span>
+            <span>Timeline & Tasks</span>
+          </div>
+          <span class="nav-badge" id="sideBadgeTasks">3/8</span>
+        </button>
+
+        <!-- Smart Guests & RSVP Navigation -->
+        <button class="nav-link" data-view="guests">
+          <div class="nav-link-left">
+            <span class="nav-icon">👥</span>
+            <span>Guests & RSVP</span>
+          </div>
+          <span class="nav-badge" id="sideBadgeGuests" style="background:var(--status-success-bg); color:var(--status-success); border:1px solid var(--status-success-border);">38 Confirmed</span>
+        </button>
+
+        <button class="nav-link" data-view="vendors">
+          <div class="nav-link-left">
+            <span class="nav-icon">🛍️</span>
+            <span>Vendor Checklist</span>
+          </div>
+        </button>
+
+        <button class="nav-link" data-view="invitations">
+          <div class="nav-link-left">
+            <span class="nav-icon">💌</span>
+            <span>AI Invitations</span>
+          </div>
+          <span class="nav-badge">EN/HI/MR</span>
+        </button>
+
+        <button class="nav-link" data-view="gifts-activities">
+          <div class="nav-link-left">
+            <span class="nav-icon">🎁</span>
+            <span>Gifts & Activities</span>
+          </div>
+        </button>
+
+        <div class="nav-section-label" style="margin-top:0.5rem;">Intelligent Tools</div>
+
+        <!-- Event-Day Emergency Assistant -->
+        <button class="nav-link" data-view="emergency">
+          <div class="nav-link-left">
+            <span class="nav-icon">🚨</span>
+            <span>Event-Day Assistant</span>
+          </div>
+          <span class="nav-badge" style="background:var(--status-error-bg); color:var(--status-error); border:1px solid var(--status-error-border);">Emergency Help</span>
+        </button>
+
+        <button class="nav-link" data-view="assistant">
+          <div class="nav-link-left">
+            <span class="nav-icon">💬</span>
+            <span>Ask EventEase AI</span>
+          </div>
+          <span class="nav-badge" style="background:var(--status-success-bg); color:var(--status-success); border:1px solid var(--status-success-border);">Online</span>
+        </button>
+
+        <button class="nav-link" data-view="export">
+          <div class="nav-link-left">
+            <span class="nav-icon">📄</span>
+            <span>Export Plan</span>
+          </div>
+        </button>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="ai-status-indicator" id="aiStatusPill">
+          <span class="status-dot demo" id="statusDot"></span>
+          <span id="aiStatusText">Demo Mode (Heuristic Engine)</span>
+        </div>
+        <button id="btnOpenApiKeyModal" class="btn btn-ghost btn-sm" style="color:var(--warm-taupe); font-size:0.75rem; justify-content:flex-start; padding:0.2rem 0;">
+          <span>⚙️ Live AI Settings (Gemini)</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         Main Wrapper
+         ==================================================================== -->
+    <div class="main-wrapper">
+
+      <!-- Top Sticky Action Header -->
+      <header class="top-header" role="banner">
+        <div class="top-header-left">
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">☰</button>
+          <button id="btnHeaderReturnHome" class="btn btn-secondary btn-sm" title="Return to Landing Page">
+            <span>🏠 Home</span>
+          </button>
+          <h1 class="page-breadcrumb-title" id="pageTitle">Dashboard Overview</h1>
+        </div>
+
+        <div class="top-header-right">
+          <!-- Preset Selector -->
+          <select id="quickPresetSelector" class="form-select" style="max-width:240px; font-size:0.82rem; padding:0.4rem 0.75rem;" aria-label="Select celebration preset">
+            <option value="preset-sample-16">🎂 Birthday Party (₹10,000 / 50 Guests)</option>
+            <option value="preset-wedding-2">💍 Priya & Rohan's Sangeet (₹2,50,000)</option>
+            <option value="preset-college-3">🎓 InnovateX College Fest (₹85,000)</option>
+            <option value="preset-community-4">🌸 Society Diwali Milan (₹45,000)</option>
+          </select>
+
+          <button id="btnOpenPlanWizard" class="btn btn-primary" title="Launch intelligent event questionnaire">
+            <span>➕ Plan an Event</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Views Container -->
+      <main class="content-area">
+
+        <!-- ==============================================================
+             VIEW 1: DASHBOARD
+             ============================================================== -->
+        <section class="view-section active" id="view-dashboard">
+          
+          <!-- Event Hero Banner -->
+          <div class="event-hero-banner">
+            <div class="hero-left">
+              <div class="hero-type-pill" id="heroTypeBadge">
+                <span id="heroTypeIcon">🎂</span>
+                <span id="heroTypeLabel">Birthday Celebration</span>
+              </div>
+              <h2 class="hero-event-name" id="heroEventName">Aarav's 1st Royal Birthday Celebration</h2>
+              
+              <div class="hero-meta-grid">
+                <div class="meta-chip">
+                  <span>📅</span>
+                  <span id="heroDate">Nov 15, 2026</span>
+                </div>
+                <div class="meta-chip">
+                  <span>⏰</span>
+                  <span id="heroTime">06:00 PM</span>
+                </div>
+                <div class="meta-chip">
+                  <span>👥</span>
+                  <span id="heroGuests">50 Guests (38 Confirmed)</span>
+                </div>
+                <div class="meta-chip">
+                  <span>📍</span>
+                  <span id="heroLocation">Greenwood Society Indoor Hall, Pune</span>
+                </div>
+                <div class="meta-chip">
+                  <span>🎨</span>
+                  <span id="heroTheme">Elegant Blush & Gold</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-actions" style="display:flex; flex-direction:column; gap:0.5rem;">
+              <button class="btn btn-secondary btn-sm" id="btnEditCurrentEvent">✏️ Edit Details</button>
+              <button class="btn btn-primary btn-sm" id="btnJumpToTheme">🎨 Discover Themes</button>
+            </div>
+          </div>
+
+          <!-- Summary Metric Cards -->
+          <div class="summary-cards-grid">
+            <div class="metric-card">
+              <span class="metric-caption">Total Planned Budget</span>
+              <span class="metric-number" id="dashTotalBudget">₹10,000</span>
+              <span class="metric-subtext">Estimated planning cap</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-caption">Allocated / Estimated</span>
+              <span class="metric-number" id="dashAllocatedCost">₹10,000</span>
+              <span class="metric-subtext" id="dashAllocPercent">100% of budget committed</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-caption">Remaining Balance</span>
+              <span class="metric-number" id="dashRemainingBalance">₹0</span>
+              <span class="health-badge healthy" id="dashHealthBadge">Balanced</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-caption">Cost Per Guest</span>
+              <span class="metric-number" id="dashCostPerGuest">₹200</span>
+              <span class="metric-subtext" id="dashGuestTally">For 50 invited (38 confirmed)</span>
+            </div>
+
+            <div class="metric-card">
+              <span class="metric-caption">Checklist Progress</span>
+              <span class="metric-number" id="dashTaskProgress">38%</span>
+              <span class="metric-subtext" id="dashTaskCount">3 of 8 tasks completed</span>
+            </div>
+          </div>
+
+          <!-- Two Column Dashboard Grid -->
+          <div class="budget-grid-layout">
+            
+            <!-- Quick Budget Health Card -->
+            <div class="app-card">
+              <div class="card-header-row">
+                <div class="card-title-group">
+                  <div class="card-icon">💰</div>
+                  <div>
+                    <h3 class="card-title">Budget Allocation Snapshot</h3>
+                    <p class="card-subtitle">All figures in Indian Rupees (₹) • Estimates</p>
+                  </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="btnNavToBudget">Full Planner →</button>
+              </div>
+
+              <!-- Multi-Segment Visual Progress Bar -->
+              <div class="budget-progress-strip">
+                <div class="progress-labels">
+                  <span>Category Distribution</span>
+                  <span id="quickBarPercentLabel">100% Allocated</span>
+                </div>
+                <div class="budget-progress-track" id="dashProgressBar">
+                  <div class="budget-progress-fill venue" id="dashProgVenue" style="width:0%;" title="Venue"></div>
+                  <div class="budget-progress-fill decor" id="dashProgDecor" style="width:25%;" title="Decoration"></div>
+                  <div class="budget-progress-fill food" id="dashProgFood" style="width:30%;" title="Food & Catering"></div>
+                  <div class="budget-progress-fill cake" id="dashProgCake" style="width:15%;" title="Cake"></div>
+                  <div class="budget-progress-fill photo" id="dashProgPhoto" style="width:10%;" title="Photography"></div>
+                  <div class="budget-progress-fill entertain" id="dashProgEntertain" style="width:5%;" title="Entertainment"></div>
+                  <div class="budget-progress-fill misc" id="dashProgMisc" style="width:5%;" title="Misc & Gifts"></div>
+                  <div class="budget-progress-fill contingency" id="dashProgContingency" style="width:10%;" title="Contingency"></div>
+                </div>
+              </div>
+
+              <!-- Quick Mini List -->
+              <div class="budget-categories-table" id="dashQuickCategories">
+                <!-- Rendered dynamically -->
+              </div>
+            </div>
+
+            <!-- Upcoming Tasks & AI Assistant Quick Card -->
+            <div class="app-card">
+              <div class="card-header-row">
+                <div class="card-title-group">
+                  <div class="card-icon">⏱️</div>
+                  <div>
+                    <h3 class="card-title">Key Preparation Tasks</h3>
+                    <p class="card-subtitle">Upcoming milestone deadlines</p>
+                  </div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="btnNavToTimeline">All Tasks →</button>
+              </div>
+
+              <div id="dashUpcomingTasksList">
+                <!-- Rendered dynamically -->
+              </div>
+
+              <!-- Quick AI Tip Callout -->
+              <div class="optimizer-callout" style="margin-top:1.5rem;">
+                <div class="optimizer-title">
+                  <span>💡</span>
+                  <span>AI Planning Insight</span>
+                </div>
+                <p id="dashAiInsightText" style="font-size:0.84rem; line-height:1.45; color:var(--text-dark);">
+                  For 50 guests in an indoor hall, opting for a 1.5 kg custom cake and balloon garland keeps your total celebration under ₹10,000 with a ₹1,000 emergency buffer.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 2: MY EVENTS & PRESETS
+             ============================================================== -->
+        <section class="view-section" id="view-my-events">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">📅</div>
+                <div>
+                  <h3 class="card-title">Saved Celebration Plans</h3>
+                  <p class="card-subtitle">Manage multiple celebrations or load realistic sample templates</p>
+                </div>
+              </div>
+              <button class="btn btn-primary" id="btnCreateNewFromEvents">➕ Plan New Event</button>
+            </div>
+
+            <div class="theme-cards-grid" id="myEventsGrid">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 3: AI THEME STUDIO ("Discover Your Perfect Theme") & MOOD BOARD
+             ============================================================== -->
+        <section class="view-section" id="view-theme-studio">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">🎨</div>
+                <div>
+                  <h3 class="card-title">AI Theme Studio & Inspiration</h3>
+                  <p class="card-subtitle">Discover curated Indian themes and explore visual styling mood boards</p>
+                </div>
+              </div>
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:600;">
+                Target Decor Budget: <span id="themeStudioBudgetLimit" style="color:var(--dusty-pink); font-weight:800;">₹2,500</span>
+              </div>
+            </div>
+
+            <!-- Tab Switcher between Recommendations and Visual Mood Board -->
+            <div class="theme-nav-tabs">
+              <button class="theme-tab-btn active" id="tabThemeRecs">🎨 Theme Recommendations</button>
+              <button class="theme-tab-btn" id="tabVisualMoodBoard">🖼️ Visual Mood Board & Inspiration</button>
+            </div>
+
+            <!-- Subview A: Theme Recommendations Grid -->
+            <div id="subviewThemeRecs">
+              <div class="theme-cards-grid" id="themeCardsGrid">
+                <!-- Rendered dynamically by app.js -->
+              </div>
+            </div>
+
+            <!-- Subview B: AI Visual Mood Board -->
+            <div id="subviewVisualMoodBoard" style="display:none;">
+              <div class="moodboard-container" id="moodBoardContainer">
+                <!-- Rendered dynamically by app.js -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 4: BUDGET PLANNER & OPTIMIZER
+             ============================================================== -->
+        <section class="view-section" id="view-budget">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">💰</div>
+                <div>
+                  <h3 class="card-title">AI Budget Planner & Optimizer</h3>
+                  <p class="card-subtitle">Adjust allocations in ₹ • Real-time balance recalculation</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <!-- AI Budget-Saving Assistant Trigger Button -->
+                <button class="btn btn-primary btn-sm" id="btnOpenBudgetOptimizer">
+                  <span>⚡ Optimize My Budget</span>
+                </button>
+                <button class="btn btn-secondary btn-sm" id="btnAutoBalanceBudget">Auto-Distribute</button>
+                <button class="btn btn-ghost btn-sm" id="btnResetDefaultRatios">Reset Ratios</button>
+              </div>
+            </div>
+
+            <!-- Health Banner -->
+            <div class="event-hero-banner" style="padding:1.25rem 1.75rem; margin-bottom:1.5rem;">
+              <div style="display:flex; gap:2.5rem; flex-wrap:wrap; align-items:center;">
+                <div>
+                  <div class="metric-caption">Total Planned Cap</div>
+                  <div class="metric-number" id="budgetViewTotalCap">₹10,000</div>
+                </div>
+                <div>
+                  <div class="metric-caption">Allocated Expenses</div>
+                  <div class="metric-number" id="budgetViewAllocated">₹10,000</div>
+                </div>
+                <div>
+                  <div class="metric-caption">Remaining Balance</div>
+                  <div class="metric-number" id="budgetViewRemaining">₹0</div>
+                  <span class="health-badge healthy" id="budgetViewHealthBadge">Balanced</span>
+                </div>
+              </div>
+              <div id="budgetWarningBox" style="font-size:0.82rem; font-weight:600; color:var(--text-muted);">
+                💡 Every expense is categorized. No double-counting.
+              </div>
+            </div>
+
+            <!-- Main Categories Table -->
+            <div class="budget-grid-layout">
+              <div>
+                <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:0.75rem;">Category Allocations (₹)</h4>
+                <div class="budget-categories-table" id="fullBudgetCategoriesList">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- AI Cost Optimizer & Savings Suggestions -->
+              <div>
+                <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:0.75rem;">AI Cost-Saving Recommendations</h4>
+                <div class="optimizer-callout" style="margin-top:0;">
+                  <div class="optimizer-title">
+                    <span>✂️</span>
+                    <span>Budget Optimization Strategies</span>
+                  </div>
+                  <ul class="optimizer-list" id="budgetOptimizerTips">
+                    <!-- Rendered dynamically -->
+                  </ul>
+                </div>
+
+                <div class="app-card" style="margin-top:1.25rem; background:var(--blush-surface); border:1px dashed var(--border-pink);">
+                  <h5 style="font-size:0.88rem; font-weight:700; margin-bottom:0.4rem;">Venue Cost Consideration</h5>
+                  <p id="venueNoteText" style="font-size:0.8rem; color:var(--text-dark); line-height:1.45;">
+                    Indoor society hall or home celebrations exclude commercial banquet charges. If hiring an external hall, ensure rental costs are factored in.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 5: FOOD & CATERING PLANNER
+             ============================================================== -->
+        <section class="view-section" id="view-food">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">🍽️</div>
+                <div>
+                  <h3 class="card-title">AI Food & Catering Planner</h3>
+                  <p class="card-subtitle">Indian buffet and snack suggestions tailored to your dietary preference</p>
+                </div>
+              </div>
+              <div class="dietary-selector-strip" id="dietaryPills">
+                <button class="diet-pill active" data-diet="veg">🥗 Pure Vegetarian</button>
+                <button class="diet-pill" data-diet="non-veg">🍗 Veg + Non-Veg</button>
+                <button class="diet-pill" data-diet="jain">🌱 Jain Menu (No Onion/Garlic)</button>
+              </div>
+            </div>
+
+            <!-- Pricing Summary Strip -->
+            <div style="background:var(--blush-surface); padding:1rem 1.5rem; border-radius:var(--radius-md); margin-bottom:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+              <div>
+                <span class="metric-caption">Estimated Catering Per Guest</span>
+                <div style="font-size:1.35rem; font-weight:800; color:var(--dusty-pink);" id="foodCostPerPlate">₹60 / plate</div>
+              </div>
+              <div>
+                <span class="metric-caption">Total Estimated Food Expense</span>
+                <div style="font-size:1.35rem; font-weight:800; color:var(--text-dark);" id="foodTotalEstimate">₹3,000</div>
+              </div>
+              <div>
+                <span class="metric-caption">Custom Celebration Cake</span>
+                <div style="font-size:1.35rem; font-weight:800; color:var(--text-dark);" id="foodCakeEstimate">₹1,500 (1.5 kg)</div>
+              </div>
+              <div style="font-size:0.75rem; color:var(--text-muted); max-width:220px;">
+                *All amounts are planning estimates based on Indian local halwai / caterer averages.
+              </div>
+            </div>
+
+            <!-- Menu Categories Grid -->
+            <div class="food-categories-grid" id="foodMenuGrid">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Budget Substitutions Box -->
+            <div class="optimizer-callout">
+              <div class="optimizer-title">
+                <span>🔄</span>
+                <span>Budget-Friendly Food Substitutions</span>
+              </div>
+              <ul class="optimizer-list">
+                <li class="optimizer-item">
+                  <span>•</span>
+                  <span>Swap live chaat counter for pre-plated cocktail samosas and Sev Puri to save approx ₹20 per guest.</span>
+                </li>
+                <li class="optimizer-item">
+                  <span>•</span>
+                  <span>Serve hot Gulab Jamun instead of multi-flavor ice cream sundaes to cut dessert refrigeration logistics cost by 40%.</span>
+                </li>
+                <li class="optimizer-item">
+                  <span>•</span>
+                  <span>Opt for seasonal fresh fruit punch or Rose Milk sharbat in beverage dispensers rather than branded canned sodas.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 6: TIMELINE & INTERACTIVE TASKS
+             ============================================================== -->
+        <section class="view-section" id="view-timeline">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">⏱️</div>
+                <div>
+                  <h3 class="card-title">AI Event Schedule & Checklist</h3>
+                  <p class="card-subtitle">Preparation milestones & Event-day run of show with live checklist</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:0.5rem;">
+                <button class="btn btn-secondary btn-sm filter-task-btn active" data-filter="all">All Tasks</button>
+                <button class="btn btn-secondary btn-sm filter-task-btn" data-filter="pending">Pending</button>
+                <button class="btn btn-secondary btn-sm filter-task-btn" data-filter="completed">Completed</button>
+              </div>
+            </div>
+
+            <div class="timeline-dual-layout">
+              
+              <!-- Left Column: Interactive Milestone Checklist -->
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                  <h4 style="font-size:0.95rem; font-weight:800;">Milestone Checklist</h4>
+                  <span id="timelineProgressBadge" class="health-badge healthy">3 of 8 completed</span>
+                </div>
+
+                <!-- Add Task Bar -->
+                <form id="formAddCustomTask" style="display:flex; gap:0.5rem; margin-bottom:1rem;">
+                  <input type="text" id="inputNewTaskTitle" class="form-input" placeholder="Add preparation task..." required style="flex:1;">
+                  <select id="selectNewTaskStage" class="form-select" style="max-width:140px;">
+                    <option value="early">Weeks Prior</option>
+                    <option value="mid">Days Prior</option>
+                    <option value="week-of">Week Of</option>
+                    <option value="day-of">Day of Event</option>
+                  </select>
+                  <button type="submit" class="btn btn-primary btn-sm">➕ Add</button>
+                </form>
+
+                <div class="timeline-list" id="timelineTasksContainer">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <!-- Right Column: Event Day Run of Show (Hour by Hour) -->
+              <div>
+                <h4 style="font-size:0.95rem; font-weight:800; margin-bottom:0.75rem;">Event-Day Schedule (Run of Show)</h4>
+                <div class="timeline-list" id="eventDayRunOfShowContainer">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 7: SMART GUESTS & RSVP MANAGEMENT (NEW FEATURE)
+             ============================================================== -->
+        <section class="view-section" id="view-guests">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">👥</div>
+                <div>
+                  <h3 class="card-title">Smart Guest & RSVP Management</h3>
+                  <p class="card-subtitle">Track invitations, dietary responses, and dynamically adjust catering by confirmed headcount</p>
+                </div>
+              </div>
+              <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <button class="btn btn-primary btn-sm" id="btnOpenAddGuestModal">➕ Add Guest / Group</button>
+                <button class="btn btn-secondary btn-sm" id="btnOpenShareRsvpModal">🔗 Shareable RSVP Link</button>
+              </div>
+            </div>
+
+            <!-- RSVP Summary Cards -->
+            <div class="summary-cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom:1.5rem;">
+              <div class="metric-card">
+                <span class="metric-caption">Total Invited</span>
+                <span class="metric-number" id="guestStatInvited">50</span>
+                <span class="metric-subtext">Across 13 guest groups</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-caption">Confirmed (Accepted)</span>
+                <span class="metric-number" id="guestStatConfirmed" style="color:var(--status-success);">38</span>
+                <span class="metric-subtext">Will attend celebration</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-caption">Pending Responses</span>
+                <span class="metric-number" id="guestStatPending" style="color:var(--status-warning);">6</span>
+                <span class="metric-subtext">Awaiting confirmation</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-caption">Declined</span>
+                <span class="metric-number" id="guestStatDeclined" style="color:var(--status-error);">6</span>
+                <span class="metric-subtext">Unable to attend</span>
+              </div>
+            </div>
+
+            <!-- Dynamic Catering Recalculation Impact Box -->
+            <div class="catering-impact-callout" id="cateringImpactBox">
+              <div>
+                <strong>🍽️ Dynamic Catering Adjustment:</strong>
+                <span id="cateringImpactText">
+                  Catering is estimated for <strong>38 confirmed guests</strong> (₹2,280 estimated catering cost instead of ₹3,000 for 50 invited guests, saving ₹720).
+                </span>
+              </div>
+              <button class="btn btn-secondary btn-sm" id="btnSyncConfirmedToCatering" style="font-size:0.75rem;">
+                Apply to Catering Budget
+              </button>
+            </div>
+
+            <!-- Shareable RSVP Link Banner -->
+            <div class="guest-rsvp-banner">
+              <div>
+                <h4 style="font-size:0.95rem; font-weight:800; color:var(--text-dark); margin-bottom:0.25rem;">Direct Digital RSVP Sharing</h4>
+                <p style="font-size:0.8rem; color:var(--text-muted);">Share this unique celebration RSVP link on WhatsApp or email so guests can record their attendance and food preferences.</p>
+              </div>
+              <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+                <div class="rsvp-link-box">
+                  <span id="shareableRsvpUrl">https://eventease.ai/rsvp#aarav-1st-birthday</span>
+                </div>
+                <button class="btn btn-primary btn-sm" id="btnCopyRsvpLink">📋 Copy Link</button>
+                <button class="btn btn-secondary btn-sm" id="btnSimulateRsvp">Preview Page</button>
+              </div>
+            </div>
+
+            <!-- Guest Roster Table -->
+            <div class="vendor-table-wrapper">
+              <table class="vendor-table">
+                <thead>
+                  <tr>
+                    <th>Guest / Family Name</th>
+                    <th>Phone / WhatsApp</th>
+                    <th>Pax</th>
+                    <th>RSVP Status</th>
+                    <th>Dietary Preference</th>
+                    <th>Invite Sent</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="guestTableBody">
+                  <!-- Rendered dynamically by app.js -->
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 8: VENDOR CHECKLIST
+             ============================================================== -->
+        <section class="view-section" id="view-vendors">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">🛍️</div>
+                <div>
+                  <h3 class="card-title">Vendor & Procurement Checklist</h3>
+                  <p class="card-subtitle">Track service providers, item quantities, priorities, and booking status in ₹</p>
+                </div>
+              </div>
+              <button class="btn btn-primary btn-sm" id="btnToggleAddVendorForm">➕ Add Item / Vendor</button>
+            </div>
+
+            <!-- Inline Add Vendor Form (collapsible) -->
+            <form id="addVendorForm" style="display:none; background:var(--blush-surface); padding:1rem; border-radius:var(--radius-md); margin-bottom:1.25rem;">
+              <div class="form-grid-2col">
+                <div class="form-group">
+                  <label class="form-label">Service / Item Name</label>
+                  <input type="text" id="newVendorName" class="form-input" placeholder="e.g. Balloon Decorator / Halwai" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Category</label>
+                  <select id="newVendorCategory" class="form-select">
+                    <option value="Decor">Decoration</option>
+                    <option value="Food">Catering / Food</option>
+                    <option value="Cake">Cake & Bakery</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Gifts">Gifts / Return Favors</option>
+                    <option value="Venue">Venue / Rentals</option>
+                    <option value="Misc">Miscellaneous</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Estimated Price (₹)</label>
+                  <input type="number" id="newVendorPrice" class="form-input" placeholder="2500" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Priority</label>
+                  <select id="newVendorPriority" class="form-select">
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low">Low Priority</option>
+                  </select>
+                </div>
+              </div>
+              <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:0.75rem;">
+                <button type="button" class="btn btn-secondary btn-sm" id="btnCancelVendorForm">Cancel</button>
+                <button type="submit" class="btn btn-primary btn-sm">Save Item</button>
+              </div>
+            </form>
+
+            <div class="vendor-table-wrapper">
+              <table class="vendor-table">
+                <thead>
+                  <tr>
+                    <th>Item / Service</th>
+                    <th>Category</th>
+                    <th>Quantity / Scale</th>
+                    <th>Estimated Price</th>
+                    <th>Priority</th>
+                    <th>Booking Status</th>
+                    <th>Notes</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="vendorTableBody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <div style="margin-top:1.25rem; font-size:0.8rem; color:var(--text-muted); display:flex; justify-content:space-between; align-items:center;">
+              <span>*Prices shown are estimated budgeting benchmarks. No fake vendor contacts or live availability fabricated.</span>
+              <span id="vendorProcurementTotal" style="font-weight:800; color:var(--text-dark);">Total Estimated: ₹10,000</span>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 9: AI INVITATION & MESSAGE GENERATOR
+             ============================================================== -->
+        <section class="view-section" id="view-invitations">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">💌</div>
+                <div>
+                  <h3 class="card-title">AI Invitation & Message Generator</h3>
+                  <p class="card-subtitle">Generate celebration messages in English, Hindi, and Marathi with 5 tone styles</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="invitation-editor-grid">
+              <!-- Controls -->
+              <div>
+                <div style="margin-bottom:1.25rem;">
+                  <label class="form-label">1. Choose Language</label>
+                  <div style="display:flex; gap:0.5rem;" id="inviteLanguageSelector">
+                    <button class="btn btn-secondary btn-sm active" data-lang="english">🇬🇧 English</button>
+                    <button class="btn btn-secondary btn-sm" data-lang="hindi">🇮🇳 Hindi (हिंदी)</button>
+                    <button class="btn btn-secondary btn-sm" data-lang="marathi">🚩 Marathi (मराठी)</button>
+                  </div>
+                </div>
+
+                <div style="margin-bottom:1.25rem;">
+                  <label class="form-label">2. Select Tone</label>
+                  <div style="display:flex; flex-wrap:wrap; gap:0.4rem;" id="inviteToneSelector">
+                    <button class="btn btn-secondary btn-sm active" data-tone="elegant">✨ Elegant & Aesthetic</button>
+                    <button class="btn btn-secondary btn-sm" data-tone="formal">📜 Formal</button>
+                    <button class="btn btn-secondary btn-sm" data-tone="friendly">👋 Friendly</button>
+                    <button class="btn btn-secondary btn-sm" data-tone="traditional">🙏 Traditional</button>
+                    <button class="btn btn-secondary btn-sm" data-tone="fun">🎉 Fun & Energetic</button>
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:1rem;">
+                  <label class="form-label">Host Name(s) for Signoff</label>
+                  <input type="text" id="inviteHostInput" class="form-input" placeholder="e.g. The Sharma Family / Aarav's Parents" value="The Sharma Family">
+                </div>
+
+                <div style="display:flex; gap:0.5rem; margin-top:1.5rem;">
+                  <button class="btn btn-primary" id="btnCopyInviteText">📋 Copy to Clipboard</button>
+                  <button class="btn btn-secondary" id="btnShareWhatsApp">💬 Share via WhatsApp</button>
+                </div>
+              </div>
+
+              <!-- Live Preview Card -->
+              <div class="preview-card-frame">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; border-bottom:1px solid rgba(214,107,145,0.2); padding-bottom:0.5rem;">
+                  <span style="font-size:0.78rem; font-weight:800; color:var(--dusty-pink); text-transform:uppercase;">Live Invitation Preview</span>
+                  <span id="previewLangBadge" class="health-badge healthy">English • Elegant</span>
+                </div>
+                <div class="invite-text-rendered" id="invitationPreviewText">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 10: GIFTS, ACTIVITIES & ECO-FRIENDLY IDEAS
+             ============================================================== -->
+        <section class="view-section" id="view-gifts-activities">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">🎁</div>
+                <div>
+                  <h3 class="card-title">Celebration Activities & Gift Guide</h3>
+                  <p class="card-subtitle">Indian party games, tiered gift suggestions in ₹, and sustainable event ideas</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activities Section -->
+            <h4 style="font-size:1.05rem; font-weight:800; margin-bottom:0.75rem;">Interactive Indian Games & Activities</h4>
+            <div class="theme-cards-grid" id="activitiesGrid" style="margin-bottom:2rem;">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Gift Ideas Tiered -->
+            <h4 style="font-size:1.05rem; font-weight:800; margin-bottom:0.75rem;">Curated Gift Suggestions by Price Tier</h4>
+            <div class="theme-cards-grid" id="giftsGrid" style="margin-bottom:2rem;">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Eco-Friendly Suggestions -->
+            <h4 style="font-size:1.05rem; font-weight:800; margin-bottom:0.75rem;">🌿 Eco-Friendly & Zero-Waste Event Tips</h4>
+            <div class="summary-cards-grid" id="ecoTipsGrid">
+              <!-- Rendered dynamically -->
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 11: EVENT-DAY EMERGENCY ASSISTANT (NEW FEATURE)
+             ============================================================== -->
+        <section class="view-section" id="view-emergency">
+          <div class="app-card">
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon" style="background:var(--status-error-bg); color:var(--status-error); border:1px solid var(--status-error-border);">🚨</div>
+                <div>
+                  <h3 class="card-title">Event-Day Emergency Assistant</h3>
+                  <p class="card-subtitle">Instant practical action protocols for real-time celebration crises and surprises</p>
+                </div>
+              </div>
+              <span class="health-badge danger" style="font-size:0.75rem;">⚡ Real-time Crisis Mode</span>
+            </div>
+
+            <!-- Emergency Alert Banner -->
+            <div class="emergency-header-alert">
+              <div style="font-size:2rem; flex-shrink:0;">🆘</div>
+              <div>
+                <h4 style="font-size:1.05rem; font-weight:700; color:var(--status-error); margin-bottom:0.25rem;">
+                  Don't Panic! We have immediate Indian celebration contingency protocols.
+                </h4>
+                <p style="font-size:0.84rem; color:var(--soft-espresso); line-height:1.45;">
+                  Select your crisis situation below for instant action steps, or type any emergency question.
+                </p>
+              </div>
+            </div>
+
+            <!-- Crisis Situation Selector Chips -->
+            <div style="margin-bottom:1.5rem;">
+              <label class="form-label">Select Your Current Situation:</label>
+              <div class="emergency-dial-checklist" id="emergencySituationChips">
+                <button class="emergency-chip active" data-crisis="vendor_late">🏃 Vendor Running Late</button>
+                <button class="emergency-chip" data-crisis="cake_missing">🎂 Cake Damaged / Missing</button>
+                <button class="emergency-chip" data-crisis="guest_surge">👥 Unexpected Guest Surge (+15)</button>
+                <button class="emergency-chip" data-crisis="rain_weather">🌧️ Rain / Power Outage</button>
+                <button class="emergency-chip" data-crisis="food_shortage">🍲 Buffet Food Running Low</button>
+                <button class="emergency-chip" data-crisis="schedule_delay">⏱️ Program Running Behind</button>
+                <button class="emergency-chip" data-crisis="decor_tear">🌸 Decor Tear / Sagging</button>
+              </div>
+            </div>
+
+            <!-- Active Crisis Playbook Card -->
+            <div class="crisis-playbook-card" id="crisisPlaybookCard">
+              <!-- Rendered dynamically by app.js -->
+            </div>
+
+            <!-- Custom Emergency Natural Language Ask Box -->
+            <div class="app-card" style="margin-top:2rem; background:var(--blush-surface); border:1px solid var(--border-pink);">
+              <h4 style="font-size:0.95rem; font-weight:800; color:var(--text-dark); margin-bottom:0.4rem;">
+                Have a different emergency? Ask the Emergency Assistant:
+              </h4>
+              <form id="emergencyAskForm" style="display:flex; gap:0.65rem; margin-top:0.75rem;">
+                <input type="text" id="emergencyCustomInput" class="form-input" placeholder="e.g. My sound system speaker stopped working 20 mins before cake cutting..." required style="flex:1;">
+                <button type="submit" class="btn btn-primary">Get Instant Solution</button>
+              </form>
+              <div id="emergencyCustomOutput" style="display:none; margin-top:1rem; padding:1rem; background:#FFFFFF; border-radius:8px; font-size:0.86rem; line-height:1.5;"></div>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 12: ASK EVENTEASE AI (CONVERSATIONAL ASSISTANT)
+             ============================================================== -->
+        <section class="view-section" id="view-assistant">
+          <div class="chat-window-card">
+            
+            <!-- Banner / Disclaimer -->
+            <div class="chat-banner-disclaimer">
+              <div style="display:flex; align-items:center; gap:0.5rem;">
+                <span class="status-dot demo" id="chatStatusDot"></span>
+                <span id="chatModeLabel"><strong>Ask EventEase AI:</strong> Intelligent contextual planning assistant</span>
+              </div>
+              <button id="btnConfigureAiKey" class="btn btn-ghost btn-sm" style="color:#FFFFFF; font-size:0.75rem;">
+                Connect Live Gemini API →
+              </button>
+            </div>
+
+            <!-- Message Stream -->
+            <div class="chat-messages-container" id="chatMessagesContainer">
+              <!-- Initial Welcome Message -->
+              <div class="chat-bubble assistant">
+                <p><strong>Namaste! 🙏 I'm your EventEase AI celebration assistant.</strong></p>
+                <p style="margin-top:0.4rem;">
+                  I'm actively synchronized with <strong><span class="chat-active-name">Aarav's 1st Birthday</span></strong> (Budget: <span class="chat-active-budget">₹10,000</span> for <span class="chat-active-guests">50 guests</span>).
+                </p>
+                <p style="margin-top:0.4rem;">
+                  You can ask me to adjust your budget, suggest decor alternatives, generate menus, or create invitations in Marathi or Hindi! How can I help you plan?
+                </p>
+              </div>
+            </div>
+
+            <!-- Suggested Prompt Pills -->
+            <div class="suggested-prompts-bar">
+              <button class="prompt-pill" data-query="Suggest an elegant birthday theme under ₹10,000.">🌸 Theme under ₹10,000</button>
+              <button class="prompt-pill" data-query="How can I decorate an indoor hall for 50 guests?">🎈 Hall decor for 50 guests</button>
+              <button class="prompt-pill" data-query="Reduce my decoration budget by ₹2,000.">✂️ Reduce decor by ₹2,000</button>
+              <button class="prompt-pill" data-query="Suggest an affordable vegetarian menu.">🍲 Affordable veg menu</button>
+              <button class="prompt-pill" data-query="What should I complete three days before the event?">⏱️ 3-Day Prep Checklist</button>
+              <button class="prompt-pill" data-query="Create an invitation in Marathi.">🚩 Marathi Invitation</button>
+              <button class="prompt-pill" data-query="Give me alternatives to expensive floral decorations.">🌿 Cheaper floral alternatives</button>
+            </div>
+
+            <!-- Input Bar -->
+            <form id="chatForm" class="chat-input-bar">
+              <input type="text" id="chatInput" class="chat-input-box" placeholder="Ask anything about your celebration..." required autocomplete="off">
+              <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+
+          </div>
+        </section>
+
+
+        <!-- ==============================================================
+             VIEW 13: EXPORT & DOWNLOAD PLAN
+             ============================================================== -->
+        <section class="view-section" id="view-export">
+          <div class="app-card" id="printableDossier">
+            
+            <div class="card-header-row">
+              <div class="card-title-group">
+                <div class="card-icon">📄</div>
+                <div>
+                  <h3 class="card-title">Complete Event Planning Dossier</h3>
+                  <p class="card-subtitle">Comprehensive master blueprint with updated Indian ₹ budget allocations</p>
+                </div>
+              </div>
+              <button class="btn btn-primary" id="btnPrintDossier">
+                <span>🖨️ Print / Download PDF</span>
+              </button>
+            </div>
+
+            <div id="dossierContent">
+              <!-- Dynamically rendered printable dossier -->
+            </div>
+
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+  </div>
+
+
+  <!-- ====================================================================
+       AI BUDGET-SAVING ASSISTANT MODAL ("Optimize My Budget")
+       ==================================================================== -->
+  <div class="modal-overlay" id="budgetOptimizerModal" role="dialog" aria-modal="true" aria-labelledby="optModalTitle">
+    <div class="wizard-modal-box" style="max-width:760px; padding:0; overflow:hidden;">
+      
+      <div class="optimizer-dialog-header">
+        <div>
+          <h3 style="font-size:1.25rem; font-weight:700; color:var(--soft-espresso);" id="optModalTitle">⚡ AI Budget-Saving Assistant</h3>
+          <span style="font-size:0.8rem; color:var(--warm-taupe);">Intelligent Indian celebration cost reductions without ruining your event aesthetic</span>
+        </div>
+        <div class="savings-highlight-badge" id="optTotalPotentialSavings">
+          Potential Savings: ₹2,100
+        </div>
+      </div>
+
+      <div class="optimization-cards-container" id="optimizationCardsContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+
+      <div style="background:var(--bg-main); padding:1.25rem 1.75rem; border-top:1px solid var(--border-beige); display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:0.8rem; color:var(--warm-taupe);">
+          *Changes apply only when you click "Accept Savings". Totals recalibrate automatically.
+        </span>
+        <button type="button" class="btn btn-secondary" id="btnCloseOptimizerModal">Done / Close</button>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ====================================================================
+       ADD / EDIT GUEST MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="guestModal" role="dialog" aria-modal="true" aria-labelledby="guestModalTitle">
+    <div class="wizard-modal-box" style="max-width:540px;">
+      <div class="wizard-steps-header" style="margin-bottom:1.25rem;">
+        <h3 style="font-size:1.2rem; font-weight:800;" id="guestModalTitle">Add Guest / Group</h3>
+        <button type="button" class="btn btn-ghost btn-sm" id="btnCloseGuestModal">✕</button>
+      </div>
+
+      <form id="guestForm" class="form-grid-2col">
+        <input type="hidden" id="guestEditId" value="">
+
+        <div class="form-group full-width">
+          <label class="form-label">Guest / Family Name</label>
+          <input type="text" id="guestInputName" class="form-input" placeholder="e.g. Vikram & Neha Sharma" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">WhatsApp / Phone</label>
+          <input type="text" id="guestInputPhone" class="form-input" placeholder="+91 98220 12345">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Number of Pax (Attending)</label>
+          <input type="number" id="guestInputPax" class="form-input" value="2" min="1" max="50" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">RSVP Status</label>
+          <select id="guestSelectStatus" class="form-select">
+            <option value="Accepted">Accepted (Confirmed)</option>
+            <option value="Pending">Pending Response</option>
+            <option value="Declined">Declined</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Dietary Preference</label>
+          <select id="guestSelectDietary" class="form-select">
+            <option value="Veg">Vegetarian</option>
+            <option value="Jain">Jain (No onion/garlic)</option>
+            <option value="Non-Veg">Non-Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+          </select>
+        </div>
+
+        <div class="form-group full-width">
+          <label class="form-label">Special Notes / Seating</label>
+          <input type="text" id="guestInputNotes" class="form-input" placeholder="e.g. High chair needed, arriving after 7 PM">
+        </div>
+
+        <div class="form-group full-width" style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:0.75rem;">
+          <button type="button" class="btn btn-secondary" id="btnCancelGuestModal">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btnSaveGuest">Save Guest</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ====================================================================
+       SHAREABLE RSVP PAGE SIMULATOR / PREVIEW MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="rsvpShareModal" role="dialog" aria-modal="true" aria-labelledby="rsvpShareTitle">
+    <div class="wizard-modal-box" style="max-width:540px; background:linear-gradient(180deg, #FFFEFC 0%, #FAF5F0 100%);">
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <span style="font-size:2rem;">💌</span>
+        <h3 style="font-size:1.35rem; font-weight:800; color:var(--text-dark);" id="rsvpShareTitle">You're Invited!</h3>
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-top:0.25rem;">
+          <strong id="rsvpShareEventName">Aarav's 1st Royal Birthday Celebration</strong>
+        </p>
+        <div style="font-size:0.82rem; color:var(--dusty-pink); font-weight:700; margin-top:0.35rem;" id="rsvpShareEventDate">
+          Nov 15, 2026 • 06:00 PM • Greenwood Society Hall
+        </div>
+      </div>
+
+      <!-- Interactive RSVP submission simulation form -->
+      <form id="rsvpSimulationForm" style="background:#FFFFFF; border:1px solid var(--border-pink); border-radius:12px; padding:1.25rem; box-shadow:var(--shadow-sm);">
+        <div class="form-group" style="margin-bottom:0.85rem;">
+          <label class="form-label">Your Full Name</label>
+          <input type="text" id="simGuestName" class="form-input" placeholder="e.g. Rohit & Aditi Verma" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom:0.85rem;">
+          <label class="form-label">Will you be attending?</label>
+          <div style="display:flex; gap:0.75rem;">
+            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;">
+              <input type="radio" name="simRsvpResponse" value="Accepted" checked> Joyfully Accept 🎉
+            </label>
+            <label style="display:flex; align-items:center; gap:0.35rem; font-size:0.85rem; font-weight:600; cursor:pointer;">
+              <input type="radio" name="simRsvpResponse" value="Declined"> Regretfully Decline 🙏
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:0.85rem;">
+          <label class="form-label">Total Guests Attending (Pax)</label>
+          <input type="number" id="simGuestPax" class="form-input" value="2" min="1" max="10">
+        </div>
+
+        <div class="form-group" style="margin-bottom:0.85rem;">
+          <label class="form-label">Dietary Preference</label>
+          <select id="simGuestDietary" class="form-select">
+            <option value="Veg">Pure Vegetarian</option>
+            <option value="Jain">Jain (No Onion/Garlic)</option>
+            <option value="Non-Veg">Non-Vegetarian</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:0.5rem;">
+          Submit My RSVP Response
+        </button>
+      </form>
+
+      <div style="text-align:center; margin-top:1rem;">
+        <button type="button" class="btn btn-ghost btn-sm" id="btnCloseRsvpShareModal">Close Preview</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ====================================================================
+       INTELLIGENT EVENT CREATION QUESTIONNAIRE MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="wizardModal" role="dialog" aria-modal="true" aria-labelledby="wizardTitle">
+    <div class="wizard-modal-box">
+      
+      <!-- Wizard Step Header -->
+      <div class="wizard-steps-header">
+        <div>
+          <h3 style="font-size:1.3rem; font-weight:800; color:var(--text-dark);" id="wizardTitle">Plan an Event</h3>
+          <span style="font-size:0.8rem; color:var(--text-muted);" id="wizardStepSub">Step 1 of 4: Celebration Fundamentals</span>
+        </div>
+        <div class="step-indicator">
+          <span class="step-dot active" id="dot1"></span>
+          <span class="step-dot" id="dot2"></span>
+          <span class="step-dot" id="dot3"></span>
+          <span class="step-dot" id="dot4"></span>
+        </div>
+      </div>
+
+      <!-- Multi-step Form Wizard -->
+      <form id="wizardForm">
+        
+        <!-- STEP 1: Event Fundamentals -->
+        <div class="wizard-step-pane" id="wizardStep1">
+          <div class="form-grid-2col">
+            <div class="form-group full-width">
+              <label class="form-label">Celebration Title</label>
+              <input type="text" id="wizEventName" class="form-input" placeholder="e.g. Riya's 25th Sunset Soirée" required value="Maya's Birthday Celebration">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Event Type</label>
+              <select id="wizEventType" class="form-select" required>
+                <option value="birthday">🎂 Birthday Party</option>
+                <option value="wedding">💍 Wedding / Sangeet</option>
+                <option value="engagement">✨ Engagement / Roka</option>
+                <option value="college">🎓 College Fest / Farewell</option>
+                <option value="baby_shower">👶 Baby Shower / Godh Bharai</option>
+                <option value="anniversary">🥂 Anniversary Celebration</option>
+                <option value="community">🌸 Community / Society Festival</option>
+                <option value="corporate">💼 Corporate Event / Gala</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Event Date</label>
+              <input type="date" id="wizEventDate" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Event Start Time</label>
+              <input type="time" id="wizEventTime" class="form-input" value="18:00">
+            </div>
+
+            <!-- Dynamic Question depending on event type -->
+            <div class="form-group" id="wizTypeSpecificGroup">
+              <label class="form-label" id="wizTypeSpecificLabel">Age / Milestone</label>
+              <input type="text" id="wizTypeSpecificInput" class="form-input" placeholder="e.g. Turning 1st / 18th / 50th">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Scale, Venue & Budget in ₹ -->
+        <div class="wizard-step-pane" id="wizardStep2" style="display:none;">
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label class="form-label">Total Planned Budget (₹)</label>
+              <input type="number" id="wizBudget" class="form-input" min="1000" step="500" value="10000" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Expected Number of Guests</label>
+              <input type="number" id="wizGuests" class="form-input" min="5" max="5000" value="50" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Venue Type</label>
+              <select id="wizVenueType" class="form-select">
+                <option value="Indoor Hall">Indoor Banquet / Society Hall</option>
+                <option value="Home">Home / Living Room / Terrace</option>
+                <option value="Outdoor Garden">Outdoor Garden / Lawn</option>
+                <option value="College Campus">College Campus / Auditorium</option>
+                <option value="Hotel">Hotel Ballroom</option>
+                <option value="Other">Other Venue</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Is Venue Rental Cost Included in Budget?</label>
+              <select id="wizVenueIncluded" class="form-select">
+                <option value="no">No (Venue is free / pre-booked separately)</option>
+                <option value="yes">Yes (Deduct commercial hall cost from total)</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">City & Location</label>
+              <input type="text" id="wizLocation" class="form-input" placeholder="e.g. Greenwood Society Hall, Kothrud, Pune" value="Greenwood Hall, Pune">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Style, Aesthetics & Theme -->
+        <div class="wizard-step-pane" id="wizardStep3" style="display:none;">
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label class="form-label">Preferred Style / Vibe</label>
+              <select id="wizStyle" class="form-select">
+                <option value="Elegant and Aesthetic">Elegant & Aesthetic</option>
+                <option value="Traditional Indian">Traditional & Auspicious</option>
+                <option value="Modern Minimalist">Modern Minimalist</option>
+                <option value="Playful & Whimsical">Playful & Whimsical</option>
+                <option value="Royal & Shimmering">Royal & Shimmering</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Preferred Colour Palette</label>
+              <input type="text" id="wizColors" class="form-input" placeholder="e.g. Blush Pink & Gold, Pastel Peach, Lavender" value="Blush Pink & Gold">
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Theme Idea / Custom Concept (Optional)</label>
+              <input type="text" id="wizCustomTheme" class="form-input" placeholder="Leave blank for AI recommendations">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4: Priorities & Dietary Preferences -->
+        <div class="wizard-step-pane" id="wizardStep4" style="display:none;">
+          <div class="form-grid-2col">
+            <div class="form-group">
+              <label class="form-label">Dietary Requirements</label>
+              <select id="wizDietary" class="form-select">
+                <option value="veg">Pure Vegetarian</option>
+                <option value="non-veg">Veg & Non-Vegetarian</option>
+                <option value="jain">Jain Friendly (No Onion/Garlic)</option>
+                <option value="vegan">Vegan / Health conscious</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Main Priority / Focus</label>
+              <select id="wizPriority" class="form-select">
+                <option value="decoration">Decoration & Aesthetics</option>
+                <option value="food">Food & Catering</option>
+                <option value="entertainment">Entertainment & Music</option>
+                <option value="photography">Photography & Memories</option>
+                <option value="savings">Overall Savings & Economy</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label class="form-label">Any Special Requirements or Notes</label>
+              <textarea id="wizNotes" class="form-textarea" rows="2" placeholder="e.g. Need return gifts for 20 children, keep lighting warm"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wizard Navigation Footer -->
+        <div class="wizard-actions">
+          <button type="button" class="btn btn-ghost" id="btnWizardCancel">Cancel</button>
+          
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" class="btn btn-secondary" id="btnWizardPrev" style="display:none;">← Back</button>
+            <button type="button" class="btn btn-ghost" id="btnWizardSkip">Skip Optional</button>
+            <button type="button" class="btn btn-primary" id="btnWizardNext">Next Step →</button>
+            <button type="submit" class="btn btn-primary" id="btnWizardSubmit" style="display:none;">✨ Generate Smart Plan</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- ====================================================================
+       API KEY CONFIGURATION MODAL (LIVE GEMINI AI)
+       ==================================================================== -->
+  <div class="modal-overlay" id="apiKeyModal" role="dialog" aria-modal="true" aria-labelledby="apiKeyTitle">
+    <div class="wizard-modal-box" style="max-width:520px;">
+      <h3 style="font-size:1.25rem; font-weight:800; margin-bottom:0.4rem;" id="apiKeyTitle">Live AI Configuration</h3>
+      <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1.25rem;">
+        EventEase AI includes an intelligent offline heuristic engine. To connect live Google Gemini Cloud AI for dynamic open-ended chat, provide your API key.
+      </p>
+
+      <div class="app-card" style="padding:1rem; background:var(--blush-surface); margin-bottom:1.25rem;">
+        <div style="font-size:0.8rem; line-height:1.45; color:var(--text-dark);">
+          <strong>🔒 Security & Privacy Notice:</strong>
+          <ul style="margin-left:1rem; margin-top:0.3rem;">
+            <li>Your API key is stored strictly inside your browser's private <code>localStorage</code>.</li>
+            <li>It is never transmitted to any third-party server or repository.</li>
+            <li>You can clear it at any time.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:1.25rem;">
+        <label class="form-label">Google Gemini API Key</label>
+        <input type="password" id="inputGeminiApiKey" class="form-input" placeholder="AIzaSy..." autocomplete="off">
+        <span style="font-size:0.74rem; color:var(--text-muted); display:block; margin-top:0.3rem;">
+          Get a free key from Google AI Studio (<a href="https://aistudio.google.com/" target="_blank" style="color:var(--dusty-pink);">aistudio.google.com</a>).
+        </span>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <button type="button" class="btn btn-ghost" id="btnClearApiKey">Clear Key (Use Demo)</button>
+        <div style="display:flex; gap:0.5rem;">
+          <button type="button" class="btn btn-secondary" id="btnCloseApiKeyModal">Close</button>
+          <button type="button" class="btn btn-primary" id="btnSaveApiKey">Save & Connect</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Floating Toast Notifications -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Application Logic Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
